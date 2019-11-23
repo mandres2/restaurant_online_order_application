@@ -1,15 +1,14 @@
 import React from 'react';
 import AnnouncementSummary from './AnnouncementSummary';
 
-const AnnouncementList = () => {
+const AnnouncementList = ({announcements}) => {
   return (
     <div className="announcement-list section">
-        <AnnouncementSummary />
-        <AnnouncementSummary />
-        <AnnouncementSummary />
-        <AnnouncementSummary />
-        <AnnouncementSummary />
-        <AnnouncementSummary />
+      { announcements && announcements.map(announcement => {
+        return (
+          <AnnouncementSummary announcement={announcement} key={announcement.id} />
+        )
+      })}
     </div>
   )
 }

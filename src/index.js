@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
 // This is the binding layer for React to connect to Redux
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer);
+// The function: applyMiddleware(thunk) can take a list of middleware and turns it into a store-enhancer.
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

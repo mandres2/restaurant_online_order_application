@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createAnnouncement } from '../../store/actions/announcementActions';
 
 class CreateAnnouncement extends Component {
   state = {
@@ -12,7 +14,8 @@ class CreateAnnouncement extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
+    // console.log(this.state)
+    this.props.createAnnouncement(this.state)
   }
   render() {
     return (
@@ -36,4 +39,10 @@ class CreateAnnouncement extends Component {
   }
 }
 
-export default CreateAnnouncement;
+const mapDispatchToProps =  (dispatch) => {
+  return {
+    createAnnouncement: (announcement) => dispatch(createAnnouncement(announcement))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateAnnouncement);
