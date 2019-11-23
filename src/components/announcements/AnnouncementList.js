@@ -8,6 +8,8 @@ const AnnouncementList = () => {
         <AnnouncementSummary />
         <AnnouncementSummary />
         <AnnouncementSummary />
+        <AnnouncementSummary />
+        <AnnouncementSummary />
     </div>
   )
 }

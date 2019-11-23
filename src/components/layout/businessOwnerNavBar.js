@@ -6,7 +6,7 @@ const businessOwnerNavbar = () => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
-        <Link to='/' className="brand-logo">Logo</Link>
+        <Link to='/' className="brand-logo">Restaurant Name</Link>
         <SignedInLinks />
       </div>
     </nav>
