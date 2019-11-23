@@ -9,7 +9,7 @@ const SignedInLinks = () => {
     <ul className="right">
       <li><NavLink to='/'>Dashboard</NavLink></li>
       <li><NavLink to='/menu'>Menu</NavLink></li>
-      <li><NavLink to='/create'>New Announcements</NavLink></li>
+      <li><NavLink to='/announcements'>Announcements</NavLink></li>
       <li><NavLink to='/about'>About</NavLink></li>
       {/* This link needs to be associated with an id/route from the MERN Authentication branch */}
       <li><NavLink to='/'>Log-out</NavLink></li>
