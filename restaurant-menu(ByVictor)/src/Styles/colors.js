@@ -1,1 +1,0 @@
-export const Red = "#f44336";
