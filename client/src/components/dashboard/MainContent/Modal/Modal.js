@@ -1,3 +1,4 @@
+/* import FileBase64 from 'react-file-base64'; */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -19,13 +20,51 @@ import "./Modal.scss";
 class Modal extends Component {
   state = {
     projectName: "",
-    members: [{ name: "", email: "" }],
+    members: [{ name: "", email: "", image: "" }],
     taskName: "",
     assignee: "",
     monthDue: "",
     dayDue: "",
-    taskId: ""
+    taskId: "",
+    images: []
   };
+
+/* --------------------------------- */
+  fileSelectedHandler = event => {
+    console.log(event.target.files.length);
+    
+    // try to find a storage to save this inputs
+    for(let i = 0; i < event.target.files.length; i++) {
+      console.log(event.target.files[i]);
+    }
+  }
+
+  getFiles(files){
+    /* console.log("files: -> ", files.base64); */
+    // base64 encoded here
+    /* console.log("files: -> ", files.base64); */
+    
+    /* let a = this.state.members.slice();
+    a[0].img = files.base64;
+    console.log(a);
+
+    this.setState({members: a});
+
+    console.log("files: -> ", this.state.members[0]); */
+    this.setState({ members: [{ image: files.base64 }] })
+    /* this.setState(prevState => ({
+      members: [...prevState.members, { img: files.base64 }]
+    })); */
+
+    /* console.log('this.state.members[0].img: => ', this.state.members[0].img); */
+
+    /* for(let i = 0; i < this.state.members.length; i++) {
+      console.log('this.state.members[' + i + '].img: => ', this.state.members[i].img);
+    } */
+    
+  }
+/* --------------------------------- */
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.edit) {
@@ -41,18 +80,28 @@ class Modal extends Component {
   }
 
   onChange = e => {
-    if (["name", "email"].includes(e.target.name)) {
+    if (["name", "email", "image"].includes(e.target.name)) {
+      let members = [...this.state.members];
+
+      console.log("e.target: ", e.target);
+
+      members[e.target.dataset.id][e.target.name] = e.target.value;
+      this.setState({ members });
+    } else {
+      this.setState({ [e.target.id]: e.target.value });
+    }    
+/*     if (["name", "email"].includes(e.target.name)) {
       let members = [...this.state.members];
       members[e.target.dataset.id][e.target.name] = e.target.value;
       this.setState({ members });
     } else {
       this.setState({ [e.target.id]: e.target.value });
-    }
+    } */
   };
 
   addMember = e => {
     this.setState(prevState => ({
-      members: [...prevState.members, { name: "", email: "" }]
+      members: [...prevState.members, { name: "", email: "", image: ""}]
     }));
   };
 
@@ -67,6 +116,8 @@ class Modal extends Component {
       projectName: this.state.projectName,
       members: this.state.members
     };
+
+    console.log(project);
 
     this.props.createProject(project);
     this.onClose();
@@ -103,7 +154,7 @@ class Modal extends Component {
       assignee: "",
       monthDue: "",
       dayDue: "",
-      members: [{ name: "", email: "" }]
+      members: [{ name: "", email: "", image: "" }]
     });
   };
 
@@ -239,7 +290,7 @@ class Modal extends Component {
     // Create task modal
     if (this.props.task) {
       const { teamMembers } = this.props.projects.project;
-      const { name, email } = this.props.auth.user;
+      const { name, email/* , img */ } = this.props.auth.user;
 
       // Assignee dropdown in Modal
       let membersOptions = teamMembers.map((member, index) => (
@@ -531,8 +582,12 @@ class Modal extends Component {
           </button>
           <div className="members-edit">
             {members.map((val, id) => {
+              
               let memberId = `member-${id}`,
-                emailId = `email-${id}`;
+                emailId = `email-${id}`,
+                imageId = `image-${id}`;
+
+
               return (
                 <div className="split" key={id}>
                   <label className="form-label" htmlFor={memberId}>
@@ -559,6 +614,19 @@ class Modal extends Component {
                       onChange={this.onChange}
                     />
                   </label>
+                  <label className="form-label split-email" htmlFor={imageId}>
+                    <input
+                      placeholder="Image URL"
+                      type="text"
+                      name="image"
+                      data-id={id}
+                      id={imageId}
+                      value={members[id].image}
+                      className="form-input"
+                      onChange={this.onChange}
+                    />
+                  </label>
+
                   <span
                     className="delete"
                     onClick={this.deleteMember.bind(this, id)}
@@ -617,7 +685,8 @@ class Modal extends Component {
           <div className="members">
             {members.map((val, id) => {
               let memberId = `member-${id}`,
-                emailId = `email-${id}`;
+                emailId = `email-${id}`,
+                imageId = `image-${id}`;
               return (
                 <div className="split" key={id}>
                   <label className="form-label" htmlFor={memberId}>
@@ -644,6 +713,51 @@ class Modal extends Component {
                       onChange={this.onChange}
                     />
                   </label>
+                  
+{/* -------------------------------------------------------------------------------- */}
+                  <label className="form-label split-email" htmlFor={imageId}>
+                    <input
+                      placeholder="Image URL"
+                      type="text"
+                      name="image"
+                      data-id={id}
+                      id={imageId}
+                      value={members[id].image}
+                      className="form-input"
+                      onChange={this.onChange}
+                    />
+                  </label>
+
+                  {/* input-file (image) */}
+                  
+                  {/* <label className="form-label split-email" htmlFor={imageId}>
+                    <input
+                      type="file"
+                      name="image"
+                      data-id={id}
+                      id={imageId}
+                      value={members[id].image}
+                      className="form-input"
+                      onChange={this.onChange}
+                    />                 
+                  </label> */}                  
+                  
+                  
+                  
+                  {/* <label className="form-label split-email" /* htmlFor={image} > */}
+                    {/* <input type="file" onChange={this.fileSelectedHandler}/> */}
+
+                    {/* <img src={this.state.members.img} alt='Helpful alt text'/> */}
+
+                    {/* 내일 팁: base64 컨버트 하고 바로 위처럼 셋 업데이트 하자 */}
+                    {/* <FileBase64 htmlFor={imageId} multiple={ false } onDone={ this.getFiles.bind(this) } /> */}
+
+                    {/* this.setState({
+                      members: [{ img: this }]
+                    }); */}
+
+                  {/* </label> */}
+{/* -------------------------------------------------------------------------------- */}
                   <span
                     className="delete"
                     onClick={this.deleteMember.bind(this, id)}

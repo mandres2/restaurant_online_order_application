@@ -9,6 +9,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-file-base64": "^1.0.3",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
@@ -21,7 +22,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  
   "proxy": "http://localhost:5000",
+  
+
   "eslintConfig": {
     "extends": "react-app"
   },

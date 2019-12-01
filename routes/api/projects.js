@@ -63,6 +63,7 @@ router.post(
   "/create",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
+    console.log("projects.js => req.user => ", req.user);
     const OWNER = {
       id: req.user.id,
       name: req.user.name,

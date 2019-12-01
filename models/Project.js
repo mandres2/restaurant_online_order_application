@@ -18,6 +18,9 @@ const ProjectSchema = new Schema({
       },
       name: {
         type: String
+      },
+      image: {
+        type: String
       }
     }
   ],
