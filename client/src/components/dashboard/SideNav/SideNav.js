@@ -64,12 +64,12 @@ class SideNav extends Component {
             </li>
           </div>
         </ul>
-        <ul className="bottom">
+        {/* <ul className="bottom">
           <li>
             <h4 className="side-projects-header">Menu Categories</h4>
           </li>
           <div className="project-listings">{projectData}</div>
-        </ul>
+        </ul> */}
       </nav>
     );
   }

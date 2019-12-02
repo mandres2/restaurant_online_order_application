@@ -199,7 +199,7 @@ class Project extends Component {
               taskName={this.state.taskName}
               assignee={this.state.assignee}
               dateDue={this.state.dateDue}
-              taskId={this.state.taskId}
+              taskId={this.state.taskId}  
             />
           </div>
 
@@ -216,6 +216,11 @@ class Project extends Component {
             >
               Edit Category Info
             </button>            
+
+            {/* Here Trying rende upper modal */}
+
+
+
           </div>
 
 

@@ -42,7 +42,8 @@ class Dashboard extends Component {
       <div
         key={project._id}
         className="project-icon"
-        onClick={() => this.props.history.push(`/projects/${project._id}`)}
+        /* onClick={() => this.props.history.push(`/projects/${project._id}`)} */
+        onClick={console.log("this is triggered!")}
       >
         <div className="project-name">{project.name}</div>
         <div
@@ -57,7 +58,7 @@ class Dashboard extends Component {
         >
           Edit category
         </div>
-        <div className="project-info-button">Go to category</div>
+        {/* <div className="project-info-button">Go to category</div> */}
       </div>
     ));
 
@@ -68,6 +69,7 @@ class Dashboard extends Component {
           <button className="main-btn" onClick={this.toggleModal}>
             Create another menu category
           </button>
+          
           <div className="modal-wrapper">
             <Modal
               onClose={this.toggleModal}
