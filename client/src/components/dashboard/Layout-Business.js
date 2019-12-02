@@ -41,7 +41,7 @@ class Layout extends Component {
             <Switch>
               <Route
                 exact
-                path="/dashboard"
+                path="/dashboard-business"
                 projects={projects}
                 component={Dashboard}
               />
@@ -66,7 +66,7 @@ class Layout extends Component {
             <Switch>
               <Route
                 exact
-                path="/dashboard"
+                path="/dashboard-business"
                 projects={[]}
                 component={Dashboard}
               />

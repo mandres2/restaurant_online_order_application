@@ -105,6 +105,7 @@ class Dashboard extends Component {
 
     return (
       <div className="main-content">
+        <h1 className="header">(Need To Be Removed!)You are logged in as a business Owner</h1>
         <h1 className="header">Your Restaurant Menus</h1>
         {content}
       </div>

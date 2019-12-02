@@ -16,7 +16,7 @@ import Register_Business from "./components/auth/Register-Business";
 import Register_Customer from "./components/auth/Register-Customer";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Layout from "./components/dashboard/Layout";
+import Layout_Business from "./components/dashboard/Layout-Business";
 import NotFound from "./components/404/404";
 
 // Style
@@ -55,9 +55,9 @@ class App extends Component {
               <Route exact path="/" component={Login} />
               <Route exact path="/register-business" component={Register_Business} />
               <Route exact path="/register-customer" component={Register_Customer} />
-              <PrivateRoute exact path="/dashboard" component={Layout} />
+              <PrivateRoute exact path="/dashboard-business" component={Layout_Business} />
               <Route
-                component={localStorage.jwtTokenTeams ? Layout : NotFound}
+                component={localStorage.jwtTokenTeams ? Layout_Business : NotFound}
               />
             </Switch>
           </div>

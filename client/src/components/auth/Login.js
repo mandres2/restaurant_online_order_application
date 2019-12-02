@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions-Business";
+/* import { loginUser } from "../../actions/authActions-Business"; */
+import { loginBusinessOwner } from "../../actions/authActions-Business";
+import { loginCustomer } from "../../actions/authActions-Customer";
 
 import "./Auth.scss";
 
@@ -22,7 +24,7 @@ class Login extends Component {
 
 
   /* -------------------------------- */
-  updateLoginOption = (event) => {
+  updateLoginOption = () => {
     if(businessSignUp === false) {
       businessSignUp = true;
     } else {
@@ -44,13 +46,13 @@ class Login extends Component {
     console.log(this.state);
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/dashboard-business");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/dashboard-business");
     }
 
     if (nextProps.errors) {
@@ -72,7 +74,16 @@ class Login extends Component {
       password: this.state.password
     };
 
-    this.props.loginUser(userData);
+    if(businessSignUp) {
+      //True -> Sign-in as a Business owner
+      this.props.loginBusinessOwner(userData);
+    } else {
+      //False -> Sign-in as a Customer
+      console.log("Sign-in as a customer attempted");
+      this.props.loginCustomer(userData);
+    }
+
+    
   };
 
   fillDemoEmail = () => {
@@ -163,7 +174,8 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+  loginBusinessOwner: PropTypes.func.isRequired,
+  loginCustomer: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -175,5 +187,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loginUser }
+  { loginBusinessOwner, loginCustomer }
 )(Login);

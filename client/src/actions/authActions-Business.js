@@ -18,7 +18,7 @@ export const registerBusinessOwner = (userData, history) => dispatch => {
 };
 
 // Login - get user token
-export const loginUser = userData => dispatch => {
+export const loginBusinessOwner = userData => dispatch => {
   axios
     .post("/api/businessOwners/login", userData)
     .then(res => {

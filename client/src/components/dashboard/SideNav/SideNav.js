@@ -11,6 +11,13 @@ class SideNav extends Component {
     window.location.href = "/";
   };
 
+  /* ---------------------------- */
+  
+  /* componentDidMount() {
+    this.onLogoutClick();
+  } */
+  /* ---------------------------- */
+
   // Hide Side Nav
   toggleMenu = e => {
     let sideNav = document.querySelector(".side");
