@@ -85,6 +85,7 @@ class Project extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     this.props.getProject(this.props.match.params.project);
     this.props.getTasks(this.props.match.params.project);
   }
@@ -112,6 +113,11 @@ class Project extends Component {
 
   render() {
     const { tasks } = this.props.tasks;
+
+    /* --------------- */
+    
+    /* --------------- */
+
 
     let tasksList = tasks.map((task, index) => (
       <div className="task-input" key={task._id}>
@@ -172,23 +178,12 @@ class Project extends Component {
       !this.props.projects.projectLoading &&
       !this.props.tasks.tasksLoading
     ) {
+      console.log(this.props.project);
       const { project } = this.props;
 
       return (
         <div className="main-content">
           <h1 className="project-header">{project.name}</h1>
-          <button
-            onClick={this.toggleEditModal.bind(
-              this,
-              project.name,
-              project.teamMembers,
-              project._id,
-              project.owner
-            )}
-            className="main-btn center-btn"
-          >
-            Edit Project Info
-          </button>
 
           <div className="modal-wrapper">
             <Modal
@@ -207,7 +202,25 @@ class Project extends Component {
               taskId={this.state.taskId}
             />
           </div>
+
           <div className="tasks-container">
+            <button
+              onClick={this.toggleEditModal.bind(
+                this,
+                project.name,
+                project.teamMembers,
+                project._id,
+                project.owner
+              )}
+              className="main-btn center-btn"
+            >
+              Edit Category Info
+            </button>            
+          </div>
+
+
+          {/* Task Managing Container (We do not need this) */}
+          {/* <div className="tasks-container">
             <div className="projects-first-row">
               <button
                 className="main-btn add-btn"
@@ -221,7 +234,7 @@ class Project extends Component {
               </div>
             </div>
             <div className="project-tasks">{tasksList}</div>
-          </div>
+          </div> */}
         </div>
       );
     }

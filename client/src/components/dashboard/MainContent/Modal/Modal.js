@@ -559,13 +559,13 @@ class Modal extends Component {
           <span className="close-modal" onClick={this.onClose}>
             &times;
           </span>
-          <h1 className="header">Edit Project Info</h1>
+          <h1 className="header">Edit menu category</h1>
           <p className="created-by">
             Created by {this.props.owner.name} ({this.props.owner.email})
           </p>
           <div className="form-group">
             <label>
-              <div className="form-label">Project Name (required)</div>
+              <div className="form-label">Category (required)</div>
               <input
                 onChange={this.onChange}
                 value={this.state.projectName}
@@ -576,10 +576,8 @@ class Modal extends Component {
               />
             </label>
           </div>
-          <div className="form-label">Add team members (optional)</div>
-          <button className="main-btn add-members" onClick={this.addMember}>
-            Add another member
-          </button>
+          <div className="form-label">Add menu items (optional)</div>
+          
           <div className="members-edit">
             {members.map((val, id) => {
               
@@ -591,7 +589,7 @@ class Modal extends Component {
               return (
                 <div className="split" key={id}>
                   <label className="form-label" htmlFor={memberId}>
-                    Name (required for teams)
+                    
                     <input
                       type="text"
                       name="name"
@@ -603,7 +601,7 @@ class Modal extends Component {
                     />
                   </label>
                   <label className="form-label split-email" htmlFor={emailId}>
-                    Email (required for teams)
+                    
                     <input
                       type="text"
                       name="email"
@@ -636,20 +634,24 @@ class Modal extends Component {
                 </div>
               );
             })}
+            
           </div>
+          <button className="main-btn add-members" onClick={this.addMember}>
+            Add another menu item
+          </button>
           <div>
             <button
               className="main-btn update-project"
               onClick={this.updateProject.bind(this, this.props.id)}
             >
-              Update Project
+              Update Category
             </button>
             {this.props.owner.id === this.props.auth.user.id ? (
               <button
                 className="main-btn delete-project"
                 onClick={this.deleteProject.bind(this, this.props.id)}
               >
-                Delete Project
+                Delete Category
               </button>
             ) : null}
           </div>
