@@ -17,6 +17,7 @@ import Register_Customer from "./components/auth/Register-Customer";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Layout_Business from "./components/dashboard/Layout-Business";
+import Layout_Customer from "./components/dashboard/Layout-Customer";
 import NotFound from "./components/404/404";
 
 // Style
@@ -56,6 +57,7 @@ class App extends Component {
               <Route exact path="/register-business" component={Register_Business} />
               <Route exact path="/register-customer" component={Register_Customer} />
               <PrivateRoute exact path="/dashboard-business" component={Layout_Business} />
+              <PrivateRoute exact path="/dashboard-customer" component={Layout_Customer} />
               <Route
                 component={localStorage.jwtTokenTeams ? Layout_Business : NotFound}
               />

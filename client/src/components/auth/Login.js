@@ -43,8 +43,49 @@ class Login extends Component {
   /* -------------------------------- */
 
   componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if(businessSignUp) {
+      if (this.props.auth.isAuthenticated) {
+        this.props.history.push("/dashboard-business");
+      }
+    } else {
+      console.log("this.props.history.push('/dashboard-customer')");
+      if (this.props.auth.isAuthenticated) {
+        this.props.history.push("/dashboard-customer");
+      }
+    }
+    
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(businessSignUp) {
+      if (nextProps.auth.isAuthenticated) {
+        this.props.history.push("/dashboard-business");
+      }
+
+      if (nextProps.errors) {
+        this.setState({
+          errors: nextProps.errors
+        });
+      }
+    } else {
+      console.log("this.props.history.push('/dashboard-customer')"); 
+      if (nextProps.auth.isAuthenticated) {
+        this.props.history.push("/dashboard-customer");
+      }
+
+      if (nextProps.errors) {
+        this.setState({
+          errors: nextProps.errors
+        });
+      }      
+    }
+  }
+
+/*   componentDidMount() {
     console.log(this.state);
     // If logged in and user navigates to Login page, should redirect them to dashboard
+    console.log("this.props.auth => ", this.props.auth);
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard-business");
     }
@@ -60,7 +101,7 @@ class Login extends Component {
         errors: nextProps.errors
       });
     }
-  }
+  } */
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
