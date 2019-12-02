@@ -6,6 +6,10 @@ import { loginUser } from "../../actions/authActions-Business";
 
 import "./Auth.scss";
 
+
+/* Global Variable for checking the sign-in option */
+let businessSignUp = false;
+
 class Login extends Component {
   constructor() {
     super();
@@ -16,7 +20,28 @@ class Login extends Component {
     };
   }
 
+
+  /* -------------------------------- */
+  updateLoginOption = (event) => {
+    if(businessSignUp === false) {
+      businessSignUp = true;
+    } else {
+      businessSignUp = false;
+    }  
+
+    /* 
+    if(this.state.businessSignUp === false) {
+      this.setState({ businessSignUp: true });
+    } else {
+      this.setState({ businessSignUp: false });
+    } */
+    
+    console.log("businessSignUp =>", businessSignUp);
+  }
+  /* -------------------------------- */
+
   componentDidMount() {
+    console.log(this.state);
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -62,6 +87,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
+      
       <div className="base-wrapper">
         <div className="auth-header">Sign In</div>
         <form className="auth-form" noValidate onSubmit={this.onSubmit}>
@@ -100,6 +126,18 @@ class Login extends Component {
               </div>
             </label>
           </div>
+{/* ------------------------------------------------------------- */}
+          <div className="auth-group">
+            <div className="auth-label">Sign Up as a Business Owner</div>
+            <label className="switch">
+              <input 
+                type="checkbox"
+                onChange={this.updateLoginOption}
+              />
+              <span class="slider round"></span>
+            </label>
+          </div>
+{/* ------------------------------------------------------------- */}
 
           <div>
             <button type="submit" className="auth-button">
