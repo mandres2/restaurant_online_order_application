@@ -13,7 +13,7 @@ import {
 import Spinner from "../common/Spinner";
 import SideNav from "./SideNav/SideNav";
 import TopNav from "./TopNav/TopNav";
-import Dashboard from "./MainContent/Dashboard";
+import Dashboard_Customer from "./MainContent/Dashboard-Customer";
 import Tasks from "./MainContent/Tasks";
 import Project from "./MainContent/Project/Project";
 import NotFound from "../404/404";
@@ -43,7 +43,7 @@ class Layout extends Component {
                 exact
                 path="/dashboard-customer"
                 projects={projects}
-                component={Dashboard}
+                component={Dashboard_Customer}
               />
               <Route
                 exact
@@ -68,7 +68,7 @@ class Layout extends Component {
                 exact
                 path="/dashboard-customer"
                 projects={[]}
-                component={Dashboard}
+                component={Dashboard_Customer}
               />
               <Route exact path="/tasks" component={Tasks} />
               <Route component={NotFound} />
