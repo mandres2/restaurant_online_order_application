@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { logoutUser } from "../../../actions/authActions";
+import { logoutUser } from "../../../actions/authActions-Business";
 
 import "./SideNav.scss";
 

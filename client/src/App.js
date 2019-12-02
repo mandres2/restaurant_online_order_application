@@ -9,10 +9,11 @@ import setAuthToken from "./utils/setAuthToken";
 // Redux
 import { Provider } from "react-redux";
 import store from "./store";
-import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser } from "./actions/authActions-Business";
 
 // Components
-import Register from "./components/auth/Register";
+import Register_Business from "./components/auth/Register-Business";
+import Register_Customer from "./components/auth/Register-Customer";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Layout from "./components/dashboard/Layout";
@@ -52,7 +53,8 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route exact path="/" component={Login} />
-              <Route exact path="/register" component={Register} />
+              <Route exact path="/register-business" component={Register_Business} />
+              <Route exact path="/register-customer" component={Register_Customer} />
               <PrivateRoute exact path="/dashboard" component={Layout} />
               <Route
                 component={localStorage.jwtTokenTeams ? Layout : NotFound}

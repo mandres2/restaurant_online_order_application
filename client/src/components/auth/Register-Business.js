@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { registerUser } from "../../actions/authActions";
+import { registerBusinessOwner } from "../../actions/authActions-Business";
 
 import "./Auth.scss";
 
@@ -53,6 +53,8 @@ class Register extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    
+
 
     const newUser = {
       email: this.state.email,
@@ -63,7 +65,7 @@ class Register extends Component {
       businessAddress: this.state.businessAddress      
     };
 
-    this.props.registerUser(newUser, this.props.history);
+    this.props.registerBusinessOwner(newUser, this.props.history);
   };
 
 
@@ -72,7 +74,7 @@ class Register extends Component {
 
     return (
       <div className="base-wrapper">
-        <div className="auth-header">Register Below</div>
+        <div className="auth-header">Register as a Business Owner</div>
         <form className="auth-form" noValidate onSubmit={this.onSubmit}>
           
           <div className="auth-group">
@@ -167,7 +169,7 @@ class Register extends Component {
 }
 
 Register.propTypes = {
-  registerUser: PropTypes.func.isRequired,
+  registerBusinessOwner: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -179,5 +181,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { registerUser }
+  { registerBusinessOwner }
 )(withRouter(Register));

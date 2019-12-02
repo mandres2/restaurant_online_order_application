@@ -5,9 +5,9 @@ import jwt_decode from "jwt-decode";
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 
 // Register User
-export const registerUser = (userData, history) => dispatch => {
+export const registerBusinessOwner = (userData, history) => dispatch => {
   axios
-    .post("/api/businessOwners/register", userData)
+    .post("/api/businessOwners/register-business", userData)
     .then(res => history.push("/"))
     .catch(err =>
       dispatch({

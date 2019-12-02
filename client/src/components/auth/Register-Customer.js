@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginUser } from "../../actions/authActions-Business";
+import { registerCustomer } from "../../actions/authActions-Customer";
 
 import "./Auth.scss";
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
     super();
     this.state = {
+      name: "",
       email: "",
       password: "",
       errors: {}
@@ -17,17 +18,13 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    // If logged in and user navigates to Login page, should redirect them to dashboard
+    // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
-
     if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
@@ -42,20 +39,13 @@ class Login extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const userData = {
+    const newUser = {
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password
     };
 
-    this.props.loginUser(userData);
-  };
-
-  fillDemoEmail = () => {
-    this.setState({ email: "test@test.com" });
-  };
-
-  fillDemoPassword = () => {
-    this.setState({ password: "test123" });
+    this.props.registerCustomer(newUser, this.props.history);
   };
 
   render() {
@@ -63,8 +53,23 @@ class Login extends Component {
 
     return (
       <div className="base-wrapper">
-        <div className="auth-header">Sign In</div>
+        <div className="auth-header">Register as a Customer</div>
         <form className="auth-form" noValidate onSubmit={this.onSubmit}>
+          <div className="auth-group">
+            <label>
+              <div className="auth-label">Name</div>
+              <input
+                onChange={this.onChange}
+                value={this.state.name}
+                error={errors.name}
+                id="name"
+                type="text"
+                className="auth-input"
+              />
+              <div className="auth-error">{errors.name}</div>
+            </label>
+          </div>
+
           <div className="auth-group">
             <label>
               <div className="auth-label">Email address</div>
@@ -76,10 +81,7 @@ class Login extends Component {
                 type="email"
                 className="auth-input"
               />
-              <div className="auth-error">
-                {errors.email}
-                {errors.emailnotfound}
-              </div>
+              <div className="auth-error">{errors.email}</div>
             </label>
           </div>
 
@@ -94,38 +96,28 @@ class Login extends Component {
                 type="password"
                 className="auth-input"
               />
-              <div className="auth-error">
-                {errors.password}
-                {errors.passwordincorrect}
-              </div>
+              <div className="auth-error">{errors.password}</div>
             </label>
           </div>
 
           <div>
             <button type="submit" className="auth-button">
-              Login
+              Sign up
             </button>
           </div>
           <div className="bottom-group">
-            <Link to="/register-business" className="link">
-              Sign up as a Business Owner
+            <Link to="/" className="link">
+              Sign in
             </Link>
           </div>
-          
-          <div className="bottom-group">
-            <Link to="/register-customer" className="link">
-              Sign up as a Customer
-            </Link>
-          </div>
-
         </form>
       </div>
     );
   }
 }
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+Register.propTypes = {
+  registerCustomer: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -137,5 +129,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { loginUser }
-)(Login);
+  { registerCustomer }
+)(withRouter(Register));

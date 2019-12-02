@@ -11,12 +11,14 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 /* const User = require("../../models/User"); */
-const BusinessOwner = require("../../models/BusinessOwner");
+/* const BusinessOwner = require("../../models/BusinessOwner"); */
+const Customer = require("../../models/Customer");
+
 
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.post("/register-business", (req, res) => {
+router.post("/register-customer", (req, res) => {
   // Form validation
 
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -26,26 +28,26 @@ router.post("/register-business", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  BusinessOwner.findOne({ email: req.body.email }).then(businessOwner => {
-    if (businessOwner) {
+  Customer.findOne({ email: req.body.email }).then(customer => {
+    if (customer) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
-      const newBusinessOwner = new BusinessOwner({
+      const newCustomer = new Customer({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        businessName: req.body.businessName,
-        businessAddress: req.body.businessAddress
+        /* businessName: req.body.businessName,
+        businessAddress: req.body.businessAddress */
       });
 
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newBusinessOwner.password, salt, (err, hash) => {
+        bcrypt.hash(newCustomer.password, salt, (err, hash) => {
           if (err) throw err;
-          newBusinessOwner.password = hash;
-          newBusinessOwner
+          newCustomer.password = hash;
+          newCustomer
             .save()
-            .then(businessOwner => res.json(businessOwner))
+            .then(customer => res.json(customer))
             .catch(err => console.log(err));
         });
       });
@@ -70,21 +72,21 @@ router.post("/login", (req, res) => {
   const password = req.body.password;
 
   // Find user by email
-  BusinessOwner.findOne({ email }).then(businessOwner => {
-    // Check if businessOwner exists
-    if (!businessOwner) {
+  Customer.findOne({ email }).then(customer => {
+    // Check if customer exists
+    if (!customer) {
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
 
     // Check password
-    bcrypt.compare(password, businessOwner.password).then(isMatch => {
+    bcrypt.compare(password, customer.password).then(isMatch => {
       if (isMatch) {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: businessOwner.id,
-          name: businessOwner.name,
-          email: businessOwner.email
+          id: customer.id,
+          name: customer.name,
+          email: customer.email
         };
 
         // Sign token
