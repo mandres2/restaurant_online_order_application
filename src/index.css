@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(/images/restaurant-bg.jpg) no-repeat;
+  /* background: url(/images/restaurant-bg.jpg) no-repeat; */
   background-size: 100%;
   background-position: bottom;
   background-color:#333;
