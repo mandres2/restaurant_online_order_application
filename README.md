@@ -1,107 +1,68 @@
-# "restaurant_online_order_app"
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![alt text]()
+## Available Scripts
 
-<h3>What is this application?</h3>
+In the project directory, you can run:
 
-title_of_app was intended to exhibit similar physiological behavior to UberEats/Door Dash
+### `npm start`
 
-## Motive
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-As a Full Stack Developer, the primary motive was to build a full-stack MERN application by utilizing an ORM methodology and establishing a MVC framework. Exerting these types of practices provides an organized/clean environment and allows other developers to maneuver around the code with ease.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-## Getting Started
+### `npm test`
 
-<b>To get started:</b>
-<br>
-:black_small_square: You will need to have an updated IDE (preferably VS Code), and the latest version of Node.js, and an up-to-date version of Express, and Heroku.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Prerequisites
+### `npm run build`
 
-:black_small_square: IDE: Microsoft Visual Studios 1.37.1 (or higher).
-<br>
-:black_small_square: Node.js (Version: 12.9.0 or higher)
-<br>
-:black_small_square: Express - Web application framework designed for building web applications and APIs.
-<br>
-:black_small_square: Heroku - Container-based cloud Platform as a Service (PaaS). Heroku enables developers to build, run, and operate applications entirely in the cloud.
-<br>
-:black_small_square: MongoDB - cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-## Code Explanation
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-* The way the code was written out was utilizing ORM (Object-Relational Mapping), while establishing an MVC (Model-View-Controller) framework.
-  1. 'server.js' that contains the npm packages for express, body-parser, and path. The server.js sets up the app(instance of express) as well as setting up handlebars, and import the routes.
-  2. The 'db' folder contains the MySQL data which is primarily... x
-  3. The 'public' folder contains primarily the front-end code. It also contains the CSS styling for the web page as well. The folder contains the images/screenshots used in the application.
-  4. The 'views' folder contains all of Handlebar's code.
-  5. 'controllers' folder contains has the update function
-  6. 'config' folder contains the connections and orm model for the application.
+### `npm run eject`
 
-## Deployment
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-* <b> 'git push origin master' & 'git push heroku master' the files into GitHub Profile and Heroku respectively.</b>
-* <b> Link repository and Heroku deployment link to BCS.</b>
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Built With
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-<br>
-:black_small_square: Microsoft Studios Visual Code (v1.37.1)
-<br>
-:black_small_square: Express - Web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs
-<br>
-:black_small_square: MongoDB - Open-source relational database management system
-<br>
-:black_small_square: Google Chrome v77.0.3865.90(Windows)
-<br>
-:black_small_square: Node.js v12.9.0
-<br>
-:black_small_square: ShareX v12.4.1 - Screen Record User Functionality and converts to GIFs
-<br>
-:black_small_square: Adobe XD - Created wireframe for HTML layout.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## npm Packages Used
+## Learn More
 
-:black_small_square: mongoose
-<br>
-:black_small_square: react
-<br>
-:black_small_square: react-router
-<br>
-:black_small_square: react-redux
-<br>
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Authors
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-**Micah Andres** - [mandres2](https://github.com/mandres2)
-**Victor Chung** - [vkcgithub2019](https://github.com/vkcgithub2019)
-**Hyeong Kim** - [HyeongUW](https://github.com/HyeongUW)
+### Code Splitting
 
-## License
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-<b>This project is licensed under the MIT License</b>
+### Analyzing the Bundle Size
 
-## Acknowledgments & Support
-* <b>TAs</b> - Catherine Pham, Benjamin Vaagen
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-<br>
+### Making a Progressive Web App
 
-* <b>Teacher</b> - Arron Linton
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-<br>
+### Advanced Configuration
 
-* <b>University of Washington</b> for providing study rooms.
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-## Progress Log:
-<br>
-:heavy_check_mark: 10.9 - Introduction to Project - drafting ideas
-<br>
-:heavy_check_mark: 10.10 - Drafting ideas, and formulating project proposal
-<br>
-:heavy_check_mark: 10.11 -> 10.14 - Wireframing, present project, get project approved by staff.
-<br>
-:heavy_check_marK: 10.15 -> 10.21 -> Worked on menu, dashboard front-end, began working on back-end user authentication.
-<br>
-:heavy_check_marK: 10.22-
-<br>
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
