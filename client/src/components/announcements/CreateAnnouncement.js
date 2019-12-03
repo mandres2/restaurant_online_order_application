@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { createAnnouncement } from '../../store/actions/announcementActions';
 
-class CreateAnnouncement extends Component {
+export default class CreateAnnouncement extends Component {
   state = {
     title: '',
     content: ''
@@ -17,6 +15,7 @@ class CreateAnnouncement extends Component {
     // console.log(this.state)
     this.props.createAnnouncement(this.state)
   }
+
   render() {
     return (
       <div className="container">
@@ -38,11 +37,3 @@ class CreateAnnouncement extends Component {
     )
   }
 }
-
-const mapDispatchToProps =  (dispatch) => {
-  return {
-    createAnnouncement: (announcement) => dispatch(createAnnouncement(announcement))
-  }
-}
-
-export default connect(null, mapDispatchToProps)(CreateAnnouncement);

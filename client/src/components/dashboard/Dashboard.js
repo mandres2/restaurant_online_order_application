@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Notifications from './Notifications';
 import AnnouncementList from '../announcements/AnnouncementList';
-import { connect } from 'react-redux';
+
 class Dashboard extends Component {
   render() {
     // console.log(this.props);
@@ -21,10 +21,4 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    announcements: state.announcement.announcements
-  }
-}
-
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;
