@@ -29,15 +29,15 @@ class Login extends Component {
       businessSignUp = true;
     } else {
       businessSignUp = false;
-    }  
+    }
 
-    /* 
+    /*
     if(this.state.businessSignUp === false) {
       this.setState({ businessSignUp: true });
     } else {
       this.setState({ businessSignUp: false });
     } */
-    
+
     console.log("businessSignUp =>", businessSignUp);
   }
   /* -------------------------------- */
@@ -54,7 +54,7 @@ class Login extends Component {
         this.props.history.push("/dashboard-customer");
       }
     }
-    
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,7 +69,7 @@ class Login extends Component {
         });
       }
     } else {
-      console.log("this.props.history.push('/dashboard-customer')"); 
+      console.log("this.props.history.push('/dashboard-customer')");
       if (nextProps.auth.isAuthenticated) {
         this.props.history.push("/dashboard-customer");
       }
@@ -78,7 +78,7 @@ class Login extends Component {
         this.setState({
           errors: nextProps.errors
         });
-      }      
+      }
     }
   }
 
@@ -124,7 +124,7 @@ class Login extends Component {
       this.props.loginCustomer(userData);
     }
 
-    
+
   };
 
   fillDemoEmail = () => {
@@ -139,7 +139,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      
+
       <div className="base-wrapper">
         <div className="auth-header">Sign In</div>
         <form className="auth-form" noValidate onSubmit={this.onSubmit}>
@@ -180,9 +180,9 @@ class Login extends Component {
           </div>
 {/* ------------------------------------------------------------- */}
           <div className="auth-group">
-            <div className="auth-label">Sign Up as a Business Owner</div>
+            <div className="auth-label">Login as a Business Owner</div>
             <label className="switch">
-              <input 
+              <input
                 type="checkbox"
                 onChange={this.updateLoginOption}
               />
@@ -201,7 +201,7 @@ class Login extends Component {
               Sign up as a Business Owner
             </Link>
           </div>
-          
+
           <div className="bottom-group">
             <Link to="/register-customer" className="link">
               Sign up as a Customer

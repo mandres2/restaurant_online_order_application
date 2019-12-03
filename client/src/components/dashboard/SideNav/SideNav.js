@@ -12,7 +12,7 @@ class SideNav extends Component {
   };
 
   /* ---------------------------- */
-  
+
   /* componentDidMount() {
     this.onLogoutClick();
   } */
@@ -58,6 +58,11 @@ class SideNav extends Component {
               <i className="material-icons icon">home</i>Home
             </li>
           </NavLink>
+
+          {/* Link to Menu */}
+          <li><a href="https://restaurant-menu-link.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+          Menu
+          </a></li>
           {/*
           <NavLink exact activeClassName="active-page" to="/tasks">
             <li>
