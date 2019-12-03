@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -24,3 +25,11 @@ yarn-error.log*
 
 webstorm
 .idea
+=======
+<<<<<<< HEAD
+/node_modules
+package-lock.json
+=======
+node_modules
+>>>>>>> 3b1a4fb8ed2497e3548e5a4ef83fcdc6da948100
+>>>>>>> 7ac4440c0b72b1b7077aea8520847010bb9417b7
