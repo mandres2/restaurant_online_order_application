@@ -25,6 +25,17 @@
     "nodemon": "^2.0.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-scripts": "^3.2.0",
     "validator": "^10.9.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandres2/restaurant_online_order_application.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mandres2/restaurant_online_order_application/issues"
+  },
+  "homepage": "https://github.com/mandres2/restaurant_online_order_application#readme"
 }
