@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class CreateAnnouncement extends Component {
+ class CreateAnnouncement extends Component {
   state = {
     title: '',
     content: ''
@@ -37,3 +37,5 @@ export default class CreateAnnouncement extends Component {
     )
   }
 }
+
+export default CreateAnnouncement;
