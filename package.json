@@ -1,0 +1,89 @@
+{
+<<<<<<< HEAD
+  "name": "restaurant-menu",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandres2/restaurant-menu-heroku-link.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandres2/restaurant-menu-heroku-link/issues"
+  },
+  "homepage": "https://github.com/mandres2/restaurant-menu-heroku-link#readme",
+  "devDependencies": {}
+=======
+  "name": "teams",
+  "version": "1.0.0",
+  "description": "Project Management for Teams",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "full-install": "npm install && npm install --prefix client"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.2",
+    "express": "^4.16.4",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.11",
+    "node-sass": "^4.13.0",
+    "nodemon": "^2.0.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "react-scripts": "^3.2.0",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandres2/restaurant_online_order_application.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/mandres2/restaurant_online_order_application/issues"
+  },
+  "homepage": "https://github.com/mandres2/restaurant_online_order_application#readme"
+>>>>>>> 7ac4440c0b72b1b7077aea8520847010bb9417b7
+}
